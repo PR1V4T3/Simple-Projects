@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <ncurses.h>
 
     using namespace std;
 
@@ -25,7 +26,41 @@ struct Database{
 
 };
 
+unsigned int damage(int defend_a, int hit_b){
+
+    if (hit_b >= defend_a) return hit_b - defend_a;
+    else
+    return 0;
+}
+
 int main(){
+
+Database Human;
+
+    initscr();
+
+
+
+    printw( "Your name: ");
+    refresh();
+    cin  >> Human.name;
+
+    printw( "Now, your stats are randomizing. Wait a moment." );
+
+    Human.hit = random_number(0,100);
+    printw( "Human.hit is ready." );
+
+    Human.health = random_number(0,100);
+    printw( "Human.health is ready." );
+
+    Human.defend = random_number(0,100);
+    printw( "Human.defent is ready." );
+
+    printw( "Randomizing ended.\n\n" );
+
+
+    getch();
+    endwin();
 
     return 0;
 
